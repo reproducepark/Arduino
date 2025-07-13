@@ -1,0 +1,68 @@
+// 각 LED에 연결된 아두이노 핀 번호를 정의합니다.
+#define RED_PIN 8
+#define GREEN_PIN 9
+#define BLUE_PIN 10
+
+void setup() {
+  // R, G, B 핀을 모두 출력(OUTPUT) 모드로 설정합니다.
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+
+  // 시리얼 통신을 시작합니다 (디버깅용).
+  Serial.begin(9600);
+}
+
+// 원하는 색상을 출력하는 함수
+// r, g, b 값은 각각 0~255 사이의 밝기를 의미합니다.
+void setColor(int r, int g, int b) {
+  // 공통 음극(Common Cathode) 방식은 값을 그대로 사용합니다.
+  // 0(꺼짐) ~ 255(최대 밝기)
+  analogWrite(RED_PIN, r);
+  analogWrite(GREEN_PIN, g);
+  analogWrite(BLUE_PIN, b);
+
+  // 현재 설정된 색상 값을 시리얼 모니터에 출력합니다.
+  Serial.print("Setting color: R=");
+  Serial.print(r);
+  Serial.print(", G=");
+  Serial.print(g);
+  Serial.print(", B=");
+  Serial.println(b);
+}
+
+void loop() {
+  // 빨간색 (Red)
+  setColor(255, 0, 0);
+  delay(1000); // 1초 대기
+
+  // 초록색 (Green)
+  setColor(0, 255, 0);
+  delay(1000);
+
+  // 파란색 (Blue)
+  setColor(0, 0, 255);
+  delay(1000);
+
+  // 노란색 (Yellow) - 빨강과 초록을 섞음
+  setColor(255, 255, 0);
+  delay(1000);
+
+  // 보라색 (Purple) - 빨강과 파랑을 섞음
+  setColor(128, 0, 255);
+  delay(1000);
+
+  // 하늘색 (Cyan) - 초록과 파랑을 섞음
+  setColor(0, 255, 255);
+  delay(1000);
+
+  // 흰색 (White) - 모든 색을 최대로 섞음
+  setColor(255, 255, 255);
+  delay(1000);
+  
+  // LED 끄기
+  setColor(0, 0, 0);
+  delay(1000);
+}
+
+//숙제. 만약 삼색 led의 두번째 다리가 양극이라면?
