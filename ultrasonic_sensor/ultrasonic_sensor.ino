@@ -15,6 +15,8 @@ void loop() {
   // 트리거 핀으로 펄스를 내보냄
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
+  // 10^-6초 = 1 마이크로초
+  // 2 * 10 ^ -6초 = 2 마이크로초
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);

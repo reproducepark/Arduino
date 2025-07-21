@@ -24,7 +24,10 @@ void setup() {
 
 // 원하는 색상을 출력하는 함수
 // r, g, b 값은 각각 0~255 사이의 밝기를 의미합니다.
+// 입력은 있지만 출력이 없는 함수입니다.
+// void는 반환값이 없음을 의미합니다.
 void setColor(int r, int g, int b) {
+  // Cathode, Anode 두가지 종류
   // 공통 음극(Common Cathode) 방식은 값을 그대로 사용합니다.
   // 0(꺼짐) ~ 255(최대 밝기)
   analogWrite(RED_PIN, 255-r);
@@ -42,7 +45,7 @@ void setColor(int r, int g, int b) {
 
 void loop() {
   // 스위치 핀의 상태를 읽어옵니다.
-  // INPUT_PULLUP 모드에서는 스위치가 눌리지 않으면 HIGH, 눌리면 LOW가 됩니다.
+  // INPUT_PULLUP 모드에서는 스위치가 눌리지 않으면 HIGH (1), 눌리면 LOW (0)가 됩니다.
   int switchState = digitalRead(SWITCH_PIN);
 
   // 시리얼 모니터에 현재 스위치 상태를 출력합니다.
@@ -68,7 +71,7 @@ void loop() {
     delay(1000);
 
     // 보라색 (Purple) - 빨강과 파랑을 섞음
-    setColor(128, 0, 255);
+    setColor(255, 0, 255);
     delay(1000);
 
     // 하늘색 (Cyan) - 초록과 파랑을 섞음
