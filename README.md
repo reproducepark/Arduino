@@ -125,6 +125,14 @@
 - **필요 부품**: 아두이노 보드, 16x2 I2C LCD
 - **라이브러리**: LiquidCrystal_I2C
 
+### serial_lcd_display
+**시리얼 통신과 LCD 연동**
+- **파일**: `serial_lcd_display/serial_lcd_display.ino`
+- **내용**: 시리얼 모니터로 입력받은 텍스트(최대 32글자)를 I2C LCD에 자동으로 2줄로 나누어 표시
+- **학습 목표**: 시리얼 통신 활용, 문자열 처리, LCD 동적 표시, 입력 데이터 검증
+- **필요 부품**: 아두이노 보드, 16x2 I2C LCD
+- **라이브러리**: LiquidCrystal_I2C
+
 ## 고급 프로젝트
 
 ### ccc_hello_world
@@ -175,10 +183,11 @@
 ### 고급 (디스플레이와 복합 센서)
 10. `lcd_simple` - 디스플레이 기초
 11. `lcd_elapsed_time` - 동적 디스플레이
-12. `temphum` - 디지털 센서 라이브러리
-13. `ultrasonic_sensor` - 거리 측정
-14. `tiltsensorled` - 기울기 센서
-15. `ccc_hello_world` - 고급 비전 센서
+12. `serial_lcd_display` - 시리얼 통신과 LCD 연동
+13. `temphum` - 디지털 센서 라이브러리
+14. `ultrasonic_sensor` - 거리 측정
+15. `tiltsensorled` - 기울기 센서
+16. `ccc_hello_world` - 고급 비전 센서
 
 ---
 
