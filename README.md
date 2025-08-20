@@ -5,9 +5,12 @@
 ## 목차
 
 - [기본 프로그래밍](#기본-프로그래밍)
+- [LED 제어](#led-제어)
+- [사운드](#사운드)
 - [센서 활용](#센서-활용)
 - [액추에이터 제어](#액추에이터-제어)
 - [디스플레이](#디스플레이)
+- [웹 연동 프로젝트](#웹-연동-프로젝트)
 - [고급 프로젝트](#고급-프로젝트)
 - [설치 및 사용법](#설치-및-사용법)
 
@@ -133,6 +136,40 @@
 - **필요 부품**: 아두이노 보드, 16x2 I2C LCD
 - **라이브러리**: LiquidCrystal_I2C
 
+### lcd_pixy_display
+**Pixy2 카메라와 LCD 연동**
+- **파일**: `lcd_pixy_display/lcd_pixy_display.ino`
+- **내용**: Pixy2 카메라로 감지된 첫 번째 객체의 정보(signature, x, y, age)를 LCD에 1초마다 갱신하여 표시
+- **학습 목표**: 고급 센서와 디스플레이 연동, 실시간 데이터 표시, 객체 추적
+- **필요 부품**: 아두이노 보드, Pixy2 카메라 모듈, 16x2 I2C LCD
+- **라이브러리**: LiquidCrystal_I2C, Pixy2
+
+## 웹 연동 프로젝트
+
+### serial_led_on_person
+**웹캠 사람 감지 LED 제어**
+- **파일**: `serial_led_on_person/serial_led_on_person.ino`
+- **내용**: 웹 브라우저로부터 'person:숫자' 형식의 시리얼 데이터를 수신하여 감지된 사람 수에 따라 LED 제어 (0명: 모든 LED 끄기, 1명: 빨간 LED, 2명 이상: 파란 LED)
+- **학습 목표**: 시리얼 통신, 문자열 파싱, 조건부 제어, 웹-아두이노 연동
+- **필요 부품**: 아두이노 보드, 빨간색 LED, 파란색 LED, 저항
+- **연결**: 빨간 LED(3번 핀), 파란 LED(4번 핀)
+
+### serial_led_on_half_person
+**웹캠 위치 기반 LED 제어**
+- **파일**: `serial_led_on_half_person/serial_led_on_half_person.ino`
+- **내용**: 웹캠으로부터 'person:x1,y1|x2,y2' 형식의 좌표 데이터를 수신하여 사람이 화면 오른쪽 절반(x > 0.5)에 있으면 LED 점등
+- **학습 목표**: 좌표 시스템 이해, 복잡한 문자열 파싱, 위치 기반 제어
+- **필요 부품**: 아두이노 보드, LED, 저항
+- **연결**: LED(13번 핀 - 내장 LED)
+
+### serial_led_on_thumb
+**웹 제스처 인식 LED 제어**
+- **파일**: `serial_led_on_thumb/serial_led_on_thumb.ino`
+- **내용**: 웹 기반 제스처 인식으로부터 엄지 제스처 데이터를 수신하여 'Thumb_Up'은 3번 핀 LED, 'Thumb_Down'은 4번 핀 LED 제어
+- **학습 목표**: 제스처 인식 연동, 패턴 매칭, 인터랙티브 제어
+- **필요 부품**: 아두이노 보드, LED 2개, 저항
+- **연결**: 엄지 올리기 LED(3번 핀), 엄지 내리기 LED(4번 핀)
+
 ## 고급 프로젝트
 
 ### ccc_hello_world
@@ -187,7 +224,13 @@
 13. `temphum` - 디지털 센서 라이브러리
 14. `ultrasonic_sensor` - 거리 측정
 15. `tiltsensorled` - 기울기 센서
-16. `ccc_hello_world` - 고급 비전 센서
+
+### 전문가 (웹 연동 및 고급 프로젝트)
+16. `serial_led_on_person` - 웹캠 사람 감지 LED 제어
+17. `serial_led_on_half_person` - 웹캠 위치 기반 LED 제어
+18. `serial_led_on_thumb` - 웹 제스처 인식 LED 제어
+19. `lcd_pixy_display` - Pixy2 카메라와 LCD 연동
+20. `ccc_hello_world` - 고급 비전 센서
 
 ---
 
